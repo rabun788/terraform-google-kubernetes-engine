@@ -32,7 +32,7 @@ resource "google_container_cluster" "primary" {
   cluster_ipv4_cidr   = var.cluster_ipv4_cidr
   network             = "projects/${local.network_project_id}/global/networks/${var.network}"
   deletion_protection = var.deletion_protection
-
+  enable_l4_ilb_subsetting = true
 
   dynamic "release_channel" {
     for_each = local.release_channel
